@@ -12,12 +12,14 @@ module.exports = (RED) => {
             nextRing.setSeconds(sec);
             if (nextRing < now) nextRing.setSeconds(nextRing.getSeconds() + 60*60*24);
 
-            node.send({payload:{
+            msg.payload = {
                 secondsPastMidnight: sec,
                 date: nextRing,
                 str: (String(nextRing.getHours()).padStart(2, '0') + ":" + String(nextRing.getMinutes()).padStart(2, '0') + ":" + String(nextRing.getSeconds()).padStart(2, '0')),
                 countdown: Math.round((nextRing - now)/1000)
-            }});
+            };
+
+            node.send(msg);
         });
     });
 }
