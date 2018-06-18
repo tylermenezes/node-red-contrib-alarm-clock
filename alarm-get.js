@@ -15,7 +15,8 @@ module.exports = (RED) => {
             node.send({payload:{
                 secondsPastMidnight: sec,
                 date: nextRing,
-                str: (String(nextRing.getHours()).padStart(2, '0') + ":" + String(nextRing.getMinutes()).padStart(2, '0') + ":" + String(nextRing.getSeconds()).padStart(2, '0'))
+                str: (String(nextRing.getHours()).padStart(2, '0') + ":" + String(nextRing.getMinutes()).padStart(2, '0') + ":" + String(nextRing.getSeconds()).padStart(2, '0')),
+                countdown: Math.round((nextRing - now)/1000)
             }});
         });
     });
