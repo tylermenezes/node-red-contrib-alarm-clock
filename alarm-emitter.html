@@ -1,0 +1,34 @@
+<script type="text/javascript">
+    RED.nodes.registerType('alarm-emitter',{
+        category: 'input',
+        color: '#FFAAAA',
+        defaults: {
+            name: {value: ''},
+            clock: {value:'', type: 'alarm-clock', required: true},
+            offset: {value: '0', validate:RED.validators.number()},
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "alert.png",
+        label: function() { return this.name||'alarm emitter' }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="alarm-emitter">
+    <div class="form-row">
+        <label for="node-input-name">Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-clock">Clock</label>
+        <input type="text" id="node-input-clock" placeholder="Clock">
+    </div>
+    <div class="form-row">
+        <label for="node-input-offset">Offset Sec</label>
+        <input type="text" id="node-input-offset">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="alarm-emitter">
+    <p>A node which emits an event when the attached alarm clock rings (with an optional offset).</p>
+</script>

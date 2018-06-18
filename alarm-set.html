@@ -1,0 +1,28 @@
+<script type="text/javascript">
+    RED.nodes.registerType('alarm-set',{
+        category: 'output',
+        color: '#FFAAAA',
+        defaults: {
+            clock: {value:'', type: 'alarm-clock', required: true}
+        },
+        inputs: 1,
+        outputs: 0,
+        icon: "alert.png",
+        label: "Set Alarm",
+    });
+</script>
+
+<script type="text/x-red" data-template-name="alarm-set">
+    <div class="form-row">
+        <label for="node-input-clock">Clock</label>
+        <input type="text" id="node-input-clock" placeholder="Clock">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="alarm-set">
+    <p>A node which sets the time of an attached alarm, using the following payload properties:</p>
+    <ul>
+        <li><strong>time:</strong> Number of seconds past midnight at which time the alarm will ring.</li>
+        <li><strong>disabled:</strong> True if the alarm should not ring.</li>
+    </ul>
+</script>

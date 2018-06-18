@@ -1,0 +1,29 @@
+<script type="text/javascript">
+    RED.nodes.registerType('alarm-get',{
+        category: 'function',
+        color: '#FFAAAA',
+        defaults: {
+            clock: {value:'', type: 'alarm-clock', required: true}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "alert.png",
+        label: "Get Alarm",
+    });
+</script>
+
+<script type="text/x-red" data-template-name="alarm-get">
+    <div class="form-row">
+        <label for="node-input-clock">Clock</label>
+        <input type="text" id="node-input-clock" placeholder="Clock">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="alarm-get">
+    <p>Returns a payload with:</p>
+    <ul>
+        <li><strong>secondsPastMidnight:</strong> Number of seconds past midnight at which time the alarm will ring.</li>
+        <li><strong>date:</strong> Javascript date object for the next alarm time.</li>
+        <li><strong>str:</strong> 12-hour string of the next alarm time.</li>
+    </ul>
+</script>
